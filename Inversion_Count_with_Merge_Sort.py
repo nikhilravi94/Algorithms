@@ -1,8 +1,11 @@
 #program to read contents of a file into a list, sort them using merge sort and count the number of inversions in the array
 
-inversions = 0; #variable to store the number of inversions
+#variable to store the number of inversions
+inversions = 0;
 
-#function to merge two sorted arrays
+#function to merge two sorted arrays - left array and right array
+#chooses one element at a time, either from the left or the right array to add to the merged array
+#if an element from the right array is chosen then the number of inversions equals the number of elements remaining in the left array
 def merge_function(first_sorted, first_sorted_length, second_sorted, second_sorted_length):
 	final_sorted = [];
 	total_length = first_sorted_length + second_sorted_length;
@@ -26,7 +29,8 @@ def merge_function(first_sorted, first_sorted_length, second_sorted, second_sort
 			i = i + 1;
 	return final_sorted;
 
-#recursive function to perform merge sort
+#recursive function to perform merge sort by dividing the array into left and right halves for each recursive call
+#only one element in the array: base case
 def merge_sort(input_list, length):
 	if length != 1:
 		half_length = int(length/2);
