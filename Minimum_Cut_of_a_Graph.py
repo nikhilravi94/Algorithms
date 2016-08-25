@@ -43,9 +43,8 @@ def min_cut_calculation(dict):
 #Typically running the program (n^2)*log(n) times ensures that the probability of failure is 1/n
 #the function deepcopy() is used to return a copy of a compound object by copying all information of the original object into the new object
 min_cut = min_cut_calculation(copy.deepcopy(input_dict));
-for i in range(0, no_of_vertices):
+for i in range(0, int(no_of_vertices*no_of_vertices*log(no_of_vertices))):
 	min_cut_new = min_cut_calculation(copy.deepcopy(input_dict));
-	print("New min cut is", min_cut_new)
 	if min_cut_new < min_cut:
 		min_cut = min_cut_new;
 print("The minimum cut of the given graph is:", min_cut)
